@@ -110,6 +110,7 @@ def predict_train2(net, loader, nc, all_targets, device='cuda', return_logits=Fa
         else:
             return res_list.tolist(), np.asarray(probs_list.tolist()), lams_list.tolist(), train_acc, train_nll
 
+
 def predict_test(net, loader, nc, all_targets, device='cuda', eps=1e-10):
     with torch.no_grad():
         net.eval()
