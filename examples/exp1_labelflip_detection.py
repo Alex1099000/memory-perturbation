@@ -7,7 +7,6 @@ import torch
 from torch.utils.data import DataLoader
 from sklearn.metrics import confusion_matrix
 
-# подключаем библиотеку из репозитория (mpe.py содержит utils/models/datasets)
 sys.path.append("..")
 from lib.datasets import get_dataset
 from lib.models import get_model
