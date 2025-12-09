@@ -6,7 +6,7 @@ This repository contains code to reproduce experiments of the NeurIPS 2023 paper
 *P. Nickl, L. Xu\*, D. Tailor\*, T. Möllenhoff, M.E. Khan*\
 Paper: https://arxiv.org/abs/2310.19273
 
-![mpe fig1](https://github.com/pnickl/mpe-code-release/blob/main/fig1.png)
+![mpe fig1](fig1.png)
 
 ## Installation
 
@@ -25,6 +25,22 @@ Paper: https://arxiv.org/abs/2310.19273
 - Argument `--name_exp`: This argument defines the name of the pickle file for storing the results of the example scripts. The same argument should be also used for the respective plotting script.
 - Argument `--var_version`: For experiments that use SGD or Adam and sensitivity computation with Laplace approximations, this arguments specifies a diagonal GGN (`--var_version diag`) or KFAC (`--var_version kfac`) approximation.
 - Argument `--bs_jacs`: The experiments have been tested on a Tesla V100 GPU with 16GB memory. To adjust for varying GPU memory size, the batch size for Jacobian computations can be modified with `--bs_jacs`. 
+
+To run experiments do from the root directory:
+```
+cd examples
+```
+
+## Research samples with high sensivity
+- `exp1_labelflip_detection.py`: This script estimates the share of mislabeled data in samples with high sensivity according to MPE. Run experiment with
+```
+python exp1_labelflip_detection.py --epochs 100 --flip_frac 0.05
+```
+- `exp2_poisoning_vulnerability_mpe.py`: This script estimates the influence of samples with high sensivity on model's performance (Accuracy). Run experiment with
+```
+python exp2_poisoning_vulnerability_mpe.py --epoch 100
+```
+
 
 ## Predicting generalization during training 
 
